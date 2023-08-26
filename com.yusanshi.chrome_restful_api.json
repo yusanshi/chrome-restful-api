@@ -1,0 +1,7 @@
+{
+  "name": "com.yusanshi.chrome_restful_api",
+  "description": "Chrome RESTful API",
+  "path": "/home/yu/code/chrome-restful-api/chrome_restful_api.py",
+  "type": "stdio",
+  "allowed_origins": ["chrome-extension://edlpcckipbmfpikfookbfcdjppjgnhnf/"]
+}

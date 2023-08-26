@@ -1,7 +1,0 @@
-{
-  "name": "com.yusanshi.uncover_chrome",
-  "description": "Uncover Chrome",
-  "path": "/home/yu/code/uncover-chrome/uncover_chrome.py",
-  "type": "stdio",
-  "allowed_origins": ["chrome-extension://oingfcldphgklggekcknlgjjfibaklgg/"]
-}

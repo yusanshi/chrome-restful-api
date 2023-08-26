@@ -3,23 +3,23 @@ chrome.runtime.onStartup.addListener(connect);
 chrome.runtime.onInstalled.addListener(connect);
 
 function connect() {
-  const port = chrome.runtime.connectNative('com.yusanshi.uncover_chrome');
+  const port = chrome.runtime.connectNative('com.yusanshi.chrome_restful_api');
   port.onDisconnect.addListener(connect);
-  port.onMessage.addListener(function (data) {
+
+  port.onMessage.addListener(async function (data) {
     console.log('Receive: ' + data);
     if (data == 'hello') {
       port.postMessage('Hello from the extension');
     } else if (data == 'url/current') {
-      chrome.tabs.query(
-        { active: true, lastFocusedWindow: true },
-        function (tabs) {
-          port.postMessage(tabs[0]?.url);
-        }
-      );
-    } else if (data == 'url/all') {
-      chrome.tabs.query({}, function (tabs) {
-        port.postMessage(tabs.map((e) => e.url));
+      const [tab] = await chrome.tabs.query({
+        active: true,
+        lastFocusedWindow: true,
       });
+      port.postMessage(tab?.url);
+    } else if (data == 'url/all') {
+      const tabs = await chrome.tabs.query({});
+      const urls = tabs.map((e) => e.url);
+      port.postMessage(urls);
     } else {
       port.postMessage('unknown command');
     }

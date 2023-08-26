@@ -36,7 +36,7 @@ def receive():
 
 @app.get("/")
 def hello():
-    return 'Hello from Uncover Chrome'
+    return 'Hello from the host'
 
 
 @app.get("/{path:path}")

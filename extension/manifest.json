@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Uncover Chrome",
-  "description": "Provide APIs for exposing the browser",
+  "name": "Chrome RESTful API",
+  "description": "APIs for querying and controlling Chrome browser",
   "version": "1.0",
   "icons": {
     "16": "images/icon-16.png",
